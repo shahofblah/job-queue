@@ -2,6 +2,9 @@ import tornado.ioloop
 import tornado.web
 from tornado import gen
 from queue import Queue, Empty
+import sys
+sys.path.insert(0, "../Common")
+from Endpoints import PORT
 
 tasks = Queue()
 
@@ -28,10 +31,10 @@ class Handler(tornado.web.RequestHandler):
 
 def make_app():
 	return tornado.web.Application([
-		(r"/push", Handler)
+		(r"/", Handler)
 	])
 
 
 app = make_app()
-app.listen(8000)
+app.listen(PORT)
 tornado.ioloop.IOLoop.current().start()
