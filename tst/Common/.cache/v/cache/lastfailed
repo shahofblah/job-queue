@@ -1,0 +1,14 @@
+{
+  "test_Job.py::test_ExecutionFailure": true,
+  "test_Job.py::test_ExecutionSuccess": true,
+  "test_Job.py::test_GetResource": true,
+  "test_QueueAPI.py::test_IncorrectGetJob": true,
+  "test_QueueAPI.py::test_IncorrectGetResources": true,
+  "test_QueueAPI.py::test_QueueAPI": true,
+  "test_QueueAPI.py::test_getJob": true,
+  "test_QueueAPI.py::test_getOperationPop": true,
+  "test_QueueAPI.py::test_getOperationPush": true,
+  "test_QueueAPI.py::test_getResource": true,
+  "test_Resources.py::test_ImpossibleConsume": true,
+  "test_Resources.py::test_Resources": true
+}
