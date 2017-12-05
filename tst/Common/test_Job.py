@@ -6,7 +6,7 @@ sys.path.insert(0, "../src/Common")
 from Job import Job
 from Resources import Resources
 
-def executor():
+def executor(cmdParams=None, envVars=None, image=None):
 	sleep(1)
 	return
 
@@ -21,7 +21,13 @@ def setup():
 	resource1 = Resources({'cpu':100, 'ram':100})
 	resource2 = Resources({'cpu':200, 'ram':200})
 	resource3 = Resources({'cpu':300, 'ram':300})
-	job = Job(resource2)
+
+	param = {}
+	param['resources'] = resource2
+	param['cmdParam'] = None
+	param['envVar'] = None
+	param['image'] = None
+	job = Job(param)
 	return
 
 def test_GetResource(setup):

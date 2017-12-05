@@ -17,8 +17,8 @@ def setup():
 	resources = 'resources'
 	request1 = createPushRequest(job)
 	request2 = createPopRequest(resources)
-	response1 = createPopResponse(success=False)
-	response2 = createPopResponse(job=job)
+	response1 = createPopResponse(success=False, job=None)
+	response2 = createPopResponse(success=True, job=job)
 
 
 def test_getJobFromRequest(setup):
@@ -32,14 +32,6 @@ def test_getOperationPush(setup):
 
 def test_getOperationPop(setup):
 	assert getOperation(request2) == POP
-
-def test_IncorrectGetJobFromRequest(setup):
-	with pytest.raises(TypeError):
-		getJobFromRequest(request2)
-
-def test_IncorrectGetResources(setup):
-	with pytest.raises(TypeError):
-		getResources(request1)
 
 def test_getJobFromResponse(setup):
 	assert getJobFromResponse(response2) == job

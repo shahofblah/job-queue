@@ -3,37 +3,41 @@ POP = 'pop'
 
 #Returns a push request containing job
 def createPushRequest(job):
-	#TODO
-	return
+	request = {}
+	request['op'] = PUSH
+	request['payload'] = job
+	return request
 
 #Returns a request to pop from job queue if popped value can be accommodated in resources
 def createPopRequest(resources):
-	#TODO
+	request = {}
+	request['op'] = POP
+	request['payload'] = resources
 	return
 
 #Returns the operation type, whether PUSH or POP, of a request
 def getOperation(request):
-	#TODO
-	return
+	return request['op']
 
 #Extracts the resources from a pop request
 #Raise TypeError if request is a push request
 def getResources(request):
-	#TODO
-	return
+	return request['payload']
 
 #Extracts the job from a push request
 #Raise TypeError if request is a pop request
 def getJobFromRequest(request):
-	#TODO
-	return
+	return request['payload']
 
-#Returns response to pop request, containing job if pop was successfull
+#Returns response to pop request, containing job if pop was successful
 def createPopResponse(success=False, job=None):
-	#TODO
-	return
+	response = {}
+	response['success'] = success
+	response['job'] = job
+	return response
 
 #Returns job if response contains it otherwise raises ValueError
 def getJobFromResponse(response):
-	#TODO
-	return
+	if (response['success'] == False):
+		raise ValueError
+	return response['job']

@@ -10,8 +10,8 @@ def setup():
 	global resource2
 	global resource3
 
-	resource1 = Resources({'cpu':100, 'ram':150})
-	resource2 = Resources({'cpu':50, 'ram':180})
+	resource1 = Resources({'cpu':50, 'ram':150})
+	resource2 = Resources({'cpu':100, 'ram':200})
 	resource3 = Resources({'cpu':80, 'ram':100})
 	return
 
