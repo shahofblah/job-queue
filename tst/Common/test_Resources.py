@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "../../src/Common")
+sys.path.insert(0, "../src/Common")
 import pytest
 from Resources import Resources
 

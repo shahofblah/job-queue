@@ -1,10 +1,10 @@
 from time import sleep
 from threading import Thread, active_count
-import sys
-sys.path.insert(0, "../../src/Common")
 import pytest
-from Resources import Resources
+import sys
+sys.path.insert(0, "../src/Common")
 from Job import Job
+from Resources import Resources
 
 def executor():
 	sleep(1)

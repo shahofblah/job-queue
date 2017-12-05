@@ -5,8 +5,9 @@ from queue import Queue, Empty
 import sys
 sys.path.insert(0, "../Common")
 from Endpoints import PORT
+from ModifiedSynchronisedQueue import ModifiedQueue
 
-tasks = Queue()
+tasks = ModifiedQueue()
 
 class Handler(tornado.web.RequestHandler):
 	@gen.coroutine
@@ -22,7 +23,7 @@ class Handler(tornado.web.RequestHandler):
 			self.write('Successfully pushed task : '+task)
 		elif(self.get_argument('operation')=='pop'):
 			try:
-				self.write(tasks.get(False))
+				self.write(tasks.modGet(False))
 			except Empty:
 				self.write('No tasks in queue')
 		else:

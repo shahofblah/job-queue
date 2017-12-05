@@ -1,9 +1,7 @@
 import sys
-sys.path.insert(0, "../../src/Common")
+sys.path.insert(0, "../src/Common")
 import pytest
-from QueueAPI import PUSH, POP, createPushRequest, createPopRequest, getResources, getOperation, getJob
-import Job
-import Resources
+from QueueAPI import PUSH, POP, createPushRequest, createPopRequest, getResources, getOperation, getJobFromResponse, getJobFromRequest, createPopResponse
 
 @pytest.fixture(scope='function')
 def setup():
@@ -12,15 +10,19 @@ def setup():
 	global resources
 	global request1
 	global request2
+	global response1
+	global response2
 
 	job = 'job'
 	resources = 'resources'
 	request1 = createPushRequest(job)
 	request2 = createPopRequest(resources)
+	response1 = createPopResponse(success=False)
+	response2 = createPopResponse(job=job)
 
 
-def test_getJob(setup):
-	assert getJob(request1) == job
+def test_getJobFromRequest(setup):
+	assert getJobFromRequest(request1) == job
 
 def test_getResource(setup):
 	assert getResources(request2) == resources
@@ -31,10 +33,17 @@ def test_getOperationPush(setup):
 def test_getOperationPop(setup):
 	assert getOperation(request2) == POP
 
-def test_IncorrectGetJob(setup):
+def test_IncorrectGetJobFromRequest(setup):
 	with pytest.raises(TypeError):
-		getJob(request2)
+		getJobFromRequest(request2)
 
 def test_IncorrectGetResources(setup):
 	with pytest.raises(TypeError):
 		getResources(request1)
+
+def test_getJobFromResponse(setup):
+	assert getJobFromResponse(response2) == job
+
+def test_InvalidGetJobFromResponse(setup):
+	with pytest.raises(ValueError):
+		getJobFromResponse(response1)

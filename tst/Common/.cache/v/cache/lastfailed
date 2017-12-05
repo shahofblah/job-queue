@@ -2,6 +2,7 @@
   "test_Job.py::test_ExecutionFailure": true,
   "test_Job.py::test_ExecutionSuccess": true,
   "test_Job.py::test_GetResource": true,
+  "test_QueueAPI.py": true,
   "test_QueueAPI.py::test_IncorrectGetJob": true,
   "test_QueueAPI.py::test_IncorrectGetResources": true,
   "test_QueueAPI.py::test_QueueAPI": true,

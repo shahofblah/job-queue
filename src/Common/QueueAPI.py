@@ -24,6 +24,16 @@ def getResources(request):
 
 #Extracts the job from a push request
 #Raise TypeError if request is a pop request
-def getJob(request):
+def getJobFromRequest(request):
+	#TODO
+	return
+
+#Returns response to pop request, containing job if pop was successfull
+def createPopResponse(success=False, job=None):
+	#TODO
+	return
+
+#Returns job if response contains it otherwise raises ValueError
+def getJobFromResponse(response):
 	#TODO
 	return
