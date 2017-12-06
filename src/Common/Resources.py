@@ -19,6 +19,12 @@ class Resources:
 		self.res['ram'] -= jobRequirement.res['ram']
 		return
 
+	#If jobRequirement can be accommodated in current resources
+	def canAccommodate(self, jobRequirement):
+		if((self.res['cpu'] < jobRequirement.res['cpu']) or (self.res['ram'] < jobRequirement.res['ram'])):
+			return False
+		return True
+		
 	#Opposite of consume; a job with jobRequirement requirements finishes execution
 	def free(self, jobRequirement):
 		self.res['cpu'] += jobRequirement.res['cpu']
